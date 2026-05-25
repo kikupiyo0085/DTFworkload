@@ -16,13 +16,10 @@
     rel="stylesheet"
     href="style.css">
 
-<link type="text/css" rel="stylesheet" href="css/style.css"/>
 </head>
 
 <body>
 
-<div class="top-space"></div>
-  
 <div class="app">
 
   <!-- サイドバー -->
@@ -120,23 +117,29 @@
 
       <!-- ボタン -->
 
-      <button id="addJob">
+      <button
+  type="button"
+  id="addJob">
 
-        案件追加
+  案件追加
 
-      </button>
+</button>
 
-      <button id="addSetup">
+<button
+  type="button"
+  id="addSetup">
 
-        立ち上げ追加
+  立ち上げ追加
 
-      </button>
+</button>
 
-      <button id="addTrouble">
+<button
+  type="button"
+  id="addTrouble">
 
-        トラブル追加
+  トラブル追加
 
-      </button>
+</button>
 
     </div>
 
@@ -147,6 +150,28 @@
   <!-- メイン -->
 
   <main class="dashboard">
+
+
+    <!-- 出力時間 -->
+
+    <div class="time-header">
+
+      <span class="time-label">
+
+        出力時間
+
+      </span>
+
+      <span
+        class="time-value"
+        id="timeValue">
+
+        0h
+
+      </span>
+
+    </div>
+
 
 
     <!-- ゲージ -->
@@ -161,15 +186,6 @@
       <div class="limit-line"></div>
 
     </div>
-
-    <div class="time-header">
-  <h3 class="time-label">出力時間</h3>
-  <span class="time-value" id="timeValue">8h</span>
-</div>
-
-<div class="gauge">
-  <div class="gauge-fill"></div>
-</div>
 
 
 
@@ -209,6 +225,5 @@
 
 <script src="script.js"></script>
 
-<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
