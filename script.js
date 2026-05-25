@@ -477,6 +477,8 @@ function render(){
       "job-card";
     card.dataset.index = index;
 
+    card.style.setProperty("--job-color", job.companyColor);
+
     card.style.borderColor =
       job.color;
 
