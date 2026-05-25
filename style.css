@@ -251,7 +251,7 @@ button{
 
   background:var(--panel);
 
-  border-radius:16px;
+  border-radius:10px;
 
   padding:10px 14px;
 
@@ -275,7 +275,7 @@ button{
 
   display:inline-block;
 
-  margin:0 0 6px;
+  margin:0 0 4px;
 
   padding-left:22px;
 
