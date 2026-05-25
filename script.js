@@ -30,6 +30,7 @@ const MINUTES_PER_METER = 10;
 
 const WORK_LIMIT = 480;
 
+
 const jobs = [];
 
 
@@ -270,22 +271,23 @@ function addJob(){
 
   const job = {
 
-    type:"job",
+  id: crypto.randomUUID(),
 
-    company,
+  type: "job",
 
-    companyColor:
-      companyColors[company],
+  company,
 
-    name,
+  companyColor: companyColors[company], // ←ここ修正
 
-    count,
+  name,
 
-    prints,
+  count,
 
-    color:getRandomColor()
+  prints,
 
-  };
+  color: getRandomColor()
+
+};
 
   jobs.push(job);
 
@@ -475,7 +477,7 @@ function render(){
 
     card.className =
       "job-card";
-    card.dataset.index = index;
+   card.dataset.id = job.id;
 
     card.style.setProperty("--job-color", job.companyColor);
 
@@ -627,30 +629,28 @@ function render(){
 
 new Sortable(jobList, {
 
-  animation:150,
-
-  handle:".drag-handle",
-
+  animation: 150,
+  handle: ".drag-handle",
   draggable: ".job-card",
 
   filter: ".delete-btn",
+preventOnFilter: false,
 
-  preventOnFilter: false,
-
-  onEnd(){
+  onEnd() {
 
     const newJobs = [];
 
     document.querySelectorAll(".job-card").forEach(card => {
 
-      const index = Number(card.dataset.index);
+      const id = card.dataset.id;
 
-      newJobs.push(jobs[index]);
+      const job = jobs.find(j => j.id === id);
+
+      if (job) newJobs.push(job);
 
     });
 
-    jobs.length = 0;
-    jobs.push(...newJobs);
+    jobs.splice(0, jobs.length, ...newJobs);
 
     render();
   }
