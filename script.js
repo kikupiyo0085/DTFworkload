@@ -405,7 +405,7 @@ function render(){
 
 
 
-  jobs.forEach(job=>{
+  jobs.forEach((job,index)=>{
 
     let meters = 0;
 
