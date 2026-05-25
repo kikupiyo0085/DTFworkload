@@ -630,7 +630,10 @@ function render(){
 
     : "残業なし";
 
-  new Sortable(jobList, {
+  
+}
+
+new Sortable(jobList, {
 
   animation:150,
 
@@ -661,9 +664,10 @@ function render(){
 
     jobs.push(...newJobs);
 
+
+
     render();
 
   }
 
 });
-}
