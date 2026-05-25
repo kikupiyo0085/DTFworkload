@@ -633,6 +633,10 @@ new Sortable(jobList, {
 
   draggable: ".job-card",
 
+  filter: ".delete-btn",
+
+  preventOnFilter: false,
+
   onEnd(){
 
     const newJobs = [];
@@ -650,28 +654,5 @@ new Sortable(jobList, {
 
     render();
   }
-
-});
-
-function deleteJob(index){
-
-  jobs.splice(index,1);
-
-  render();
-
-}
-
-document.getElementById("jobList")
-.addEventListener("click", (e)=>{
-
-  if(!e.target.classList.contains("delete-btn")) return;
-
-  const card = e.target.closest(".job-card");
-
-  const index = Number(card.dataset.index);
-
-  jobs.splice(index, 1);
-
-  render();
 
 });
