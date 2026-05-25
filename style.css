@@ -87,11 +87,68 @@ button{
 
 /* サイズ */
 
-.sizes{
+.size-buttons{
 
   display:flex;
 
-  gap:12px;
+  gap:10px;
+
+}
+
+
+
+.size-btn{
+
+  position:relative;
+
+}
+
+
+
+.size-btn input{
+
+  display:none;
+
+}
+
+
+
+.size-btn span{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  min-width:52px;
+
+  padding:10px 14px;
+
+  border-radius:12px;
+
+  background:white;
+
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:0.2s;
+
+}
+
+
+
+.size-btn input:checked + span{
+
+  background:#42b89d;
+
+  color:white;
+
+  transform:translateY(-1px);
+
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.08);
 
 }
 
