@@ -489,6 +489,12 @@ function render(){
 
       card.innerHTML = `
 
+  <div class="drag-handle">
+
+    ☰
+
+  </div>
+
   <button
     class="delete-btn"
     onclick="deleteJob(${index})">
@@ -522,6 +528,12 @@ function render(){
     else{
 
       card.innerHTML = `
+
+  <div class="drag-handle">
+
+    ☰
+
+  </div>
 
   <button
     class="delete-btn"
@@ -622,6 +634,8 @@ function render(){
 
   animation:150,
 
+  handle:".drag-handle",
+
   onEnd(){
 
     const cards =
@@ -646,8 +660,6 @@ function render(){
     jobs.length = 0;
 
     jobs.push(...newJobs);
-
-
 
     render();
 
