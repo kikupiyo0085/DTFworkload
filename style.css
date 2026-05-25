@@ -261,6 +261,7 @@ button{
 
   line-height:1.2;
 
+  position:relative;
 }
 
 .job-title{
@@ -292,5 +293,41 @@ button{
   margin-top:6px;
 
   font-size:13px;
+
+}
+
+.delete-btn{
+
+  position:absolute;
+
+  top:10px;
+
+  right:12px;
+
+  width:28px;
+
+  height:28px;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:#ffffff;
+
+  color:#999;
+
+  font-size:16px;
+
+  cursor:pointer;
+
+  transition:0.2s;
+
+}
+
+.delete-btn:hover{
+
+  background:#ff4fa3;
+
+  color:white;
 
 }
