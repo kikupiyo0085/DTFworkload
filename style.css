@@ -328,6 +328,8 @@ button{
 
   cursor:grabbing;
 
+}
+
 .job-title{
   position: relative;
   display: inline-block;
@@ -399,9 +401,8 @@ button{
 
   justify-content:center;
 
-  z-index:10;
+  z-index:20;
 
-  pointer-events:auto;
 }
   
 .delete-btn:hover{
@@ -429,6 +430,8 @@ button{
   z-index:5;
 
   user-select:none;
+
+  pointer-events: auto;
 
 }
 
