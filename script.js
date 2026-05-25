@@ -488,23 +488,31 @@ function render(){
 
       card.innerHTML = `
 
-        <h3 class="job-title">
+  <button
+    class="delete-btn"
+    onclick="deleteJob(${index})">
 
-          ${job.name}
+    ×
 
-        </h3>
+  </button>
 
-        <div class="job-meta">
+  <h3 class="job-title">
 
-          <span>
+    ${job.name}
 
-            ${job.time}分
+  </h3>
 
-          </span>
+  <div class="job-meta">
 
-        </div>
+    <span>
 
-      `;
+      ${job.time}分
+
+    </span>
+
+  </div>
+
+`;
 
     }
 
@@ -514,48 +522,56 @@ function render(){
 
       card.innerHTML = `
 
-        <h3
-          class="job-title"
-          style="
-            border-bottom:
-            4px solid
-            ${job.companyColor}
-          "
-        >
+  <button
+    class="delete-btn"
+    onclick="deleteJob(${index})">
 
-          ${job.name}
-          /
-          ${job.company}
+    ×
 
-        </h3>
+  </button>
 
-        <p>
-          面:
-          ${job.prints.join(" / ")}
-        </p>
+  <h3
+    class="job-title"
+    style="
+      border-bottom:
+      4px solid
+      ${job.companyColor}
+    "
+  >
 
-        <p>
-          枚数:
-          ${job.count}
-        </p>
+    ${job.company}
+    /
+    ${job.name}
 
-        <div class="job-meta">
+  </h3>
 
-          <span>
-            ${meters.toFixed(2)}m
-          </span>
+  <p>
+    面:
+    ${job.prints.join(" / ")}
+  </p>
 
-          <span>
-            ${formatMinutes(time)}
-          </span>
+  <p>
+    枚数:
+    ${job.count}
+  </p>
 
-          <span>
-            清掃 ${cleaning}分
-          </span>
+  <div class="job-meta">
 
-        </div>
+    <span>
+      ${meters.toFixed(2)}m
+    </span>
 
-      `;
+    <span>
+      ${formatMinutes(time)}
+    </span>
+
+    <span>
+      清掃 ${cleaning}分
+    </span>
+
+  </div>
+
+`;
 
     }
 
@@ -602,3 +618,12 @@ function render(){
     : "残業なし";
 
 }
+
+function deleteJob(index){
+
+  jobs.splice(index,1);
+
+  render();
+
+}
+
