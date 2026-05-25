@@ -38,12 +38,12 @@ const jobs = [];
 
 const palette = [
 
-  "#5ff2c6",
-  "#ff4fa3",
-  "#7dd3fc",
-  "#facc15",
-  "#a78bfa",
-  "#fb7185"
+  "#63c7ad", // mint
+  "#d96b98", // magenta
+  "#6eaecf", // sky
+  "#d4b357", // yellow
+  "#8e7cc3", // purple
+  "#d07a86"  // pink
 
 ];
 
@@ -547,7 +547,7 @@ function render(){
     class="job-title"
     style="
       border-bottom:
-      4px solid
+      6px solid
       ${job.companyColor}
     "
   >
