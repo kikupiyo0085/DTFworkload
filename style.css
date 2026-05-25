@@ -277,7 +277,7 @@ button{
 
   margin:0 0 6px;
 
-  padding-bottom:4px;
+  padding-left:22px;
 
   font-size:16px;
 
@@ -338,3 +338,28 @@ button{
   color:white;
 
 }
+
+.drag-handle{
+
+  position:absolute;
+
+  top:10px;
+
+  left:12px;
+
+  font-size:18px;
+
+  color:#999;
+
+  cursor:grab;
+
+  user-select:none;
+
+}
+
+.drag-handle:active{
+
+  cursor:grabbing;
+
+}
+  
