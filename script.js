@@ -475,6 +475,7 @@ function render(){
 
     card.className =
       "job-card";
+    card.dataset.index = index;
 
     card.style.borderColor =
       job.color;
@@ -617,13 +618,40 @@ function render(){
 
     : "残業なし";
 
+  new Sortable(jobList, {
+
+  animation:150,
+
+  onEnd(){
+
+    const cards =
+      [...jobList.children];
+
+
+
+    const newJobs =
+      cards.map(card=>{
+
+        const index =
+          Number(
+            card.dataset.index
+          );
+
+        return jobs[index];
+
+      });
+
+
+
+    jobs.length = 0;
+
+    jobs.push(...newJobs);
+
+
+
+    render();
+
+  }
+
+});
 }
-
-function deleteJob(index){
-
-  jobs.splice(index,1);
-
-  render();
-
-}
-
