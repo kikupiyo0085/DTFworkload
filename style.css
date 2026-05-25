@@ -1,0 +1,266 @@
+:root{
+
+  --bg:#ffffff;
+  --panel:#f2f2f2;
+
+  --mint:#5ff2c6;
+  --magenta:#ff4fa3;
+
+  --text:#222222;
+
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+
+  margin:0;
+
+  background:var(--bg);
+
+  color:var(--text);
+
+  font-family:sans-serif;
+
+}
+
+.app{
+
+  display:grid;
+
+  grid-template-columns:
+    320px 1fr;
+
+  height:100vh;
+
+}
+
+
+
+/* サイドバー */
+
+.sidebar{
+
+  background:var(--panel);
+
+  padding:24px;
+
+}
+
+.job-form{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:16px;
+
+}
+
+input,
+select,
+button{
+
+  padding:12px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:white;
+
+}
+
+button{
+
+  cursor:pointer;
+
+}
+
+
+
+/* サイズ */
+
+.sizes{
+
+  display:flex;
+
+  gap:12px;
+
+}
+
+
+
+/* ボタン */
+
+#addJob{
+
+  background:var(--mint);
+
+  font-weight:bold;
+
+}
+
+#addSetup{
+
+  background:#bdbdbd;
+
+  font-weight:bold;
+
+}
+
+#addTrouble{
+
+  background:#d9d9d9;
+
+  font-weight:bold;
+
+}
+
+
+
+/* メイン */
+
+.dashboard{
+
+  padding:40px;
+
+}
+
+
+
+/* ゲージ */
+
+.gauge-wrap{
+
+  position:relative;
+
+  width:100%;
+
+  height:64px;
+
+  background:var(--panel);
+
+  border-radius:999px;
+
+  overflow:hidden;
+
+  margin-bottom:24px;
+
+}
+
+.gauge{
+
+  display:flex;
+
+  height:100%;
+
+}
+
+.segment{
+
+  height:100%;
+
+  transition:0.3s;
+
+}
+
+.limit-line{
+
+  position:absolute;
+
+  right:0;
+
+  top:0;
+
+  width:4px;
+
+  height:100%;
+
+  background:var(--magenta);
+
+}
+
+
+
+/* 統計 */
+
+.stats{
+
+  display:flex;
+
+  gap:16px;
+
+  margin-bottom:20px;
+
+  font-size:18px;
+
+  font-weight:600;
+
+}
+
+.stats div{
+
+  background:var(--panel);
+
+  padding:10px 14px;
+
+  border-radius:999px;
+
+  line-height:1;
+
+}
+
+
+
+/* カード */
+
+.job-card{
+
+  background:var(--panel);
+
+  border-radius:16px;
+
+  padding:10px 14px;
+
+  margin-bottom:10px;
+
+  border-left:6px solid;
+
+  line-height:1.2;
+
+}
+
+.job-title{
+
+  display:inline-block;
+
+  margin:0 0 6px;
+
+  padding-bottom:4px;
+
+  font-size:16px;
+
+}
+
+.job-card p{
+
+  margin:4px 0;
+
+  font-size:14px;
+
+}
+
+.job-meta{
+
+  display:flex;
+
+  gap:12px;
+
+  margin-top:6px;
+
+  font-size:13px;
+
+}
