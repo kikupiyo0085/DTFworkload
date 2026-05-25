@@ -252,7 +252,7 @@ function addJob(){
 
   document
   .querySelectorAll(
-    ".sizes input:checked"
+    ".size-buttons input"
   )
   .forEach(input=>{
 
@@ -379,8 +379,8 @@ function resetForm(){
 
   document
   .querySelectorAll(
-    ".sizes input"
-  )
+  ".size-buttons input:checked"
+)
   .forEach(input=>{
 
     input.checked = false;
