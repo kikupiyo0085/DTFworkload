@@ -368,4 +368,120 @@ button{
   cursor:grabbing;
 
 }
-  
+
+
+  @media (max-width:768px){
+
+  .app{
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100vh;
+
+  }
+
+
+
+  /* 入力エリア */
+
+  .sidebar{
+
+  position:sticky;
+
+  top:0;
+
+  z-index:10;
+
+}
+
+
+
+  .job-form{
+
+    gap:10px;
+
+  }
+
+
+
+  input,
+  select,
+  button{
+
+    padding:10px;
+
+    font-size:16px;
+
+  }
+
+
+
+  /* メイン */
+
+  .dashboard{
+
+    width:100%;
+
+    height:70vh;
+
+    overflow-y:auto;
+
+    padding:16px;
+
+  }
+
+
+
+  /* ゲージ */
+
+  .gauge-wrap{
+
+    height:20px;
+
+  }
+
+
+
+  /* 統計 */
+
+  .stats{
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    font-size:14px;
+
+  }
+
+
+
+  .stats div{
+
+    padding:8px 10px;
+
+  }
+
+
+
+  /* カード */
+
+  .job-card{
+
+    padding:10px;
+
+  }
+
+
+
+  .job-meta{
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+  }
+
+}
