@@ -308,7 +308,7 @@ button{
 
 .job-card{
 
-  position:relative;
+  position: relative;
 
   background:var(--panel);
 
@@ -318,7 +318,7 @@ button{
 
   margin-bottom:10px;
 
-  border-left:8px solid;
+  border-left:4px solid;
 
   line-height:2.2;
 
@@ -349,9 +349,10 @@ button{
 
 .job-card p{
 
-  margin:4px 0;
+  margin:3px 0;
 
   font-size:14px;
+
 
 }
 
@@ -401,7 +402,9 @@ button{
 
   justify-content:center;
 
-  z-index:20;
+  pointer-events: auto;
+
+  z-index: 999;
 
 }
   
@@ -417,7 +420,7 @@ button{
 
   position:absolute;
 
-  top:10px;
+  top:3px;
 
   left:10px;
 
@@ -427,7 +430,7 @@ button{
 
   cursor:grab;
 
-  z-index:5;
+  z-index:2;
 
   user-select:none;
 
