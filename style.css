@@ -3,7 +3,7 @@
   --bg:#ffffff;
   --panel:#f2f2f2;
 
-  --mint:#00C196;
+  --mint:#5ff2c6;
   --magenta:#ff4fa3;
 
   --text:#222222;
@@ -25,10 +25,6 @@ body{
   font-family:sans-serif;
 
 }
-
-.top-space {
-  height: 30px;
-  background: #00C196;
 
 .app{
 
@@ -135,6 +131,44 @@ button{
 
 
 
+/* 出力時間 */
+
+.time-header{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-end;
+
+  margin-bottom:10px;
+
+}
+
+.time-label{
+
+  margin:0;
+
+  font-size:1.3rem;
+
+  font-weight:700;
+
+  color:#333;
+
+}
+
+.time-value{
+
+  font-size:1.4rem;
+
+  font-weight:700;
+
+  color:#222;
+
+}
+
+
+
 /* ゲージ */
 
 .gauge-wrap{
@@ -143,7 +177,7 @@ button{
 
   width:100%;
 
-  height:64px;
+  height:22px;
 
   background:var(--panel);
 
@@ -237,37 +271,34 @@ button{
 
 }
 
-.time-header{
+.job-title{
+
+  display:inline-block;
+
+  margin:0 0 6px;
+
+  padding-bottom:4px;
+
+  font-size:16px;
+
+}
+
+.job-card p{
+
+  margin:4px 0;
+
+  font-size:14px;
+
+}
+
+.job-meta{
+
   display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  margin-bottom:10px;
-}
 
-.time-label{
-  margin:0;
-  font-size:1.3rem; /* h3くらい */
-  font-weight:700;
-  color:#333;
-}
+  gap:12px;
 
-.time-value{
-  font-size:1.4rem;
-  font-weight:700;
-  color:#222;
-}
+  margin-top:6px;
 
-.gauge{
-  width:100%;
-  height:18px;
-  background:#e5e5e5;
-  border-radius:999px;
-  overflow:hidden;
-}
+  font-size:13px;
 
-.gauge-fill{
-  width:60%;
-  height:100%;
-  background:#7be0c3;
-  border-radius:999px;
 }
