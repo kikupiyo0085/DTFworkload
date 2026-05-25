@@ -259,9 +259,9 @@ button{
 
   margin-bottom:10px;
 
-  border-left:12px solid;
+  border-left:8px solid;
 
-  line-height:1.2;
+  line-height:2.2;
 
 }
 
@@ -273,9 +273,9 @@ button{
 
   display:inline-block;
 
-  margin:0 40px 6px 24px;
+  margin:0 30px 6px 24px;
 
-  padding-bottom:4px;
+  padding-bottom:8px;
 
   font-size:16px;
 
