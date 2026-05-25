@@ -262,7 +262,14 @@ button{
   line-height:1.2;
 
   position:relative;
+
+  cursor:grab;
+
 }
+
+.job-card:active{
+
+  cursor:grabbing;
 
 .job-title{
 
