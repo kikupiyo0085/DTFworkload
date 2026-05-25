@@ -495,13 +495,9 @@ function render(){
 
   </div>
 
-  <button
-    class="delete-btn"
-    onclick="deleteJob(${index})">
-
-    ×
-
-  </button>
+  <button class="delete-btn">
+  ×
+</button>
 
   <h3 class="job-title">
 
@@ -535,13 +531,9 @@ function render(){
 
   </div>
 
-  <button
-    class="delete-btn"
-    onclick="deleteJob(${index})">
-
-    ×
-
-  </button>
+  <button class="delete-btn">
+  ×
+</button>
 
   <h3
     class="job-title"
@@ -669,5 +661,28 @@ new Sortable(jobList, {
     render();
 
   }
+
+});
+
+function deleteJob(index){
+
+  jobs.splice(index,1);
+
+  render();
+
+}
+
+document.getElementById("jobList")
+.addEventListener("click", (e)=>{
+
+  if(!e.target.classList.contains("delete-btn")) return;
+
+  const card = e.target.closest(".job-card");
+
+  const index = Number(card.dataset.index);
+
+  jobs.splice(index, 1);
+
+  render();
 
 });
