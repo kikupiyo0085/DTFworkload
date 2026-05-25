@@ -87,6 +87,9 @@ const overtimeEl =
 const jobList =
   document.getElementById("jobList");
 
+const timeValue =
+  document.getElementById("timeValue");
+
 
 
 /* ボタン */
@@ -520,9 +523,9 @@ function render(){
           "
         >
 
-          ${job.company}
-          /
           ${job.name}
+          /
+          ${job.company}
 
         </h3>
 
@@ -564,11 +567,21 @@ function render(){
 
   /* 合計 */
 
-  totalMetersEl.textContent =
+    totalMetersEl.textContent =
     `${totalMeters.toFixed(2)}m`;
 
   totalTimeEl.textContent =
     formatMinutes(totalTime);
+
+
+
+  timeValue.textContent =
+
+    (
+      totalTime / 60
+    ).toFixed(1)
+
+    + "h";
 
 
 
