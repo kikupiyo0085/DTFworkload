@@ -631,35 +631,24 @@ new Sortable(jobList, {
 
   handle:".drag-handle",
 
+  draggable: ".job-card",
+
   onEnd(){
 
-    const cards =
-      [...jobList.children];
+    const newJobs = [];
 
+    document.querySelectorAll(".job-card").forEach(card => {
 
+      const index = Number(card.dataset.index);
 
-    const newJobs =
-      cards.map(card=>{
+      newJobs.push(jobs[index]);
 
-        const index =
-          Number(
-            card.dataset.index
-          );
-
-        return jobs[index];
-
-      });
-
-
+    });
 
     jobs.length = 0;
-
     jobs.push(...newJobs);
 
-
-
     render();
-
   }
 
 });
