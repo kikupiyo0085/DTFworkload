@@ -369,9 +369,9 @@ button{
 
   position:absolute;
 
-  top:10px;
+  top:8px;
 
-  right:12px;
+  right:10px;
 
   width:28px;
 
@@ -399,6 +399,9 @@ button{
 
   justify-content:center;
 
+  z-index:10;
+
+  pointer-events:auto;
 }
   
 .delete-btn:hover{
@@ -415,13 +418,15 @@ button{
 
   top:10px;
 
-  left:12px;
+  left:10px;
 
   font-size:18px;
 
   color:#999;
 
   cursor:grab;
+
+  z-index:5;
 
   user-select:none;
 
