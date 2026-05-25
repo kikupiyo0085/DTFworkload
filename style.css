@@ -26,6 +26,10 @@ body{
 
 }
 
+.top-space {
+  height: 30px;
+  background: #b8f2e6;
+
 .app{
 
   display:grid;
