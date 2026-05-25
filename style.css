@@ -329,15 +329,24 @@ button{
   cursor:grabbing;
 
 .job-title{
+  position: relative;
+  
+  display: inline-block;
+  
+  padding-bottom: 6px;
+  
+}
 
-  display:inline-block;
-
-  margin:0 30px 6px 24px;
-
-  padding-bottom:8px;
-
-  font-size:16px;
-
+  .job-title::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  background: currentColor;
+  opacity: 0.8;
+  border-radius: 2px;
 }
 
 .job-card p{
