@@ -251,9 +251,9 @@ function addJob(){
   const prints = [];
 
   document
-  .querySelectorAll(
-    ".size-buttons input"
-  )
+.querySelectorAll(
+  ".size-buttons input:checked"
+)
   .forEach(input=>{
 
     prints.push(input.value);
