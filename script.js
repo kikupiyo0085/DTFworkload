@@ -538,10 +538,8 @@ function render(){
   <h3
     class="job-title"
     style="
-      border-bottom:
-      6px solid
-      ${job.companyColor}
-    "
+  border-bottom: none;
+"
   >
 
     ${job.company}
