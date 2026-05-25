@@ -35,7 +35,7 @@ body{
   display:grid;
 
   grid-template-columns:
-    280px 1fr;
+    320px 1fr;
 
   height:100vh;
 
@@ -67,11 +67,11 @@ input,
 select,
 button{
 
-  padding:20px;
+  padding:18px;
 
   border:none;
 
-  border-radius:20px;
+  border-radius:18px;
 
   background:white;
 
