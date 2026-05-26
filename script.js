@@ -545,9 +545,9 @@ function render(){
 "
   >
 
-    ${job.company}
+    $${job.name}
     /
-    ${job.name}
+    ${job.company}
 
   </h3>
 
