@@ -314,13 +314,13 @@ button{
 
   border-radius:16px;
 
-  padding:10px 14px;
+  padding:6px 10px;
 
-  margin-bottom:10px;
+  margin-bottom:6px;
 
   border-left:4px solid;
 
-  line-height:2.2;
+  line-height:1.5;
 
 }
 
@@ -360,11 +360,11 @@ button{
 
   display:flex;
 
-  gap:12px;
+  gap:8px;
 
-  margin-top:6px;
+  margin-top:4px;
 
-  font-size:13px;
+  font-size:12px;
 
 }
 
