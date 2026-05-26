@@ -1,28 +1,250 @@
-function refreshSaveList(){
+<!DOCTYPE html>
+<html lang="ja">
+<head>
 
-  const select =
-    document.getElementById("loadSelect");
+  <meta charset="UTF-8">
 
-  const all =
-    JSON.parse(localStorage.getItem(SAVE_KEY)) || {};
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
-  const list = Object.keys(all);
+  <title>
+    DTF Workload Viewer
+  </title>
 
-  select.innerHTML = "";
+  <link
+    rel="stylesheet"
+    href="style.css">
 
-  list.forEach(name => {
+</head>
 
-    const option = document.createElement("option");
-    option.value = name;
-    option.textContent = name;
+<body>
 
-    select.appendChild(option);
+<div class="app">
 
-  });
+  <!-- サイドバー -->
 
-  if(list.length === 0){
-    const option = document.createElement("option");
-    option.textContent = "保存なし";
-    select.appendChild(option);
-  }
-}
+  <aside class="sidebar">
+
+    <h1>
+      DTF Workload
+    </h1>
+
+    <div class="job-form">
+
+
+      <!-- 会社 -->
+
+      <select id="company">
+
+        <option value="スタイル">
+          スタイル
+        </option>
+
+        <option value="メイクス">
+          メイクス
+        </option>
+
+        <option value="日本コーイン">
+          日本コーイン
+        </option>
+
+        <option value="その他">
+          その他
+        </option>
+
+        <option value="個人案件">
+          個人案件(担当も案件名欄に記入)
+        </option>
+
+      </select>
+
+
+
+      <!-- 案件名 -->
+
+      <input
+        type="text"
+        id="jobName"
+        placeholder="案件名">
+
+
+
+      <!-- 枚数 -->
+
+      <input
+        type="number"
+        id="jobCount"
+        placeholder="総枚数">
+
+
+
+      <!-- サイズ -->
+
+      <div class="size-buttons">
+
+  <label class="size-btn">
+
+    <input
+      type="checkbox"
+      value="S">
+
+    <span>S</span>
+
+  </label>
+
+  <label class="size-btn">
+
+    <input
+      type="checkbox"
+      value="M">
+
+    <span>M</span>
+
+  </label>
+
+  <label class="size-btn">
+
+    <input
+      type="checkbox"
+      value="L">
+
+    <span>L</span>
+
+  </label>
+
+  <label class="size-btn">
+
+    <input
+      type="checkbox"
+      value="LL">
+
+    <span>LL</span>
+
+  </label>
+
+</div>
+
+
+
+      <!-- ボタン -->
+
+      <button
+  type="button"
+  id="addJob">
+
+  案件追加
+
+</button>
+
+<button
+  type="button"
+  id="addSetup">
+
+  立ち上げ追加
+
+</button>
+
+<button
+  type="button"
+  id="addTrouble">
+
+  トラブル追加
+
+</button>
+
+    </div>
+
+    <input id="saveName" placeholder="保存名 or 日付">
+<button id="saveBtn">保存</button>
+
+<select id="loadSelect"></select>
+<button id="loadBtn">読み込み</button>
+<button id="deleteSaveBtn">削除</button>
+
+  </aside>
+
+
+
+  <!-- メイン -->
+
+  <main class="dashboard">
+
+
+    <!-- 出力時間 -->
+
+    <div class="time-header">
+
+      <span class="time-label">
+
+        出力時間
+
+      </span>
+
+      <span
+        class="time-value"
+        id="timeValue">
+
+        0h
+
+      </span>
+
+    </div>
+
+
+
+    <!-- ゲージ -->
+
+    <div class="gauge-wrap">
+
+      <div
+        class="gauge"
+        id="gauge">
+      </div>
+
+      <div class="limit-line"></div>
+
+    </div>
+
+
+
+    <!-- 統計 -->
+
+    <div class="stats">
+
+      <div id="totalMeters">
+
+        0m
+
+      </div>
+
+      <div id="totalTime">
+
+        0時間0分
+
+      </div>
+
+      <div id="overtime">
+
+      SAFE
+
+      </div>
+
+    </div>
+
+
+
+    <!-- 一覧 -->
+
+    <div id="jobList"></div>
+
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+  
+</body>
+</html>
