@@ -30,6 +30,7 @@ const MINUTES_PER_METER = 10;
 
 const WORK_LIMIT = 480;
 
+const SAVE_KEY = "dtf_saves";
 
 const jobs = [];
 
@@ -654,3 +655,132 @@ preventOnFilter: false,
   }
 
 });
+
+function saveJobs(name){
+
+  const all = JSON.parse(localStorage.getItem(SAVE_KEY)) || {};
+
+  all[name] = jobs;
+
+  localStorage.setItem(SAVE_KEY, JSON.stringify(all));
+
+}
+
+function loadJobs(name){
+
+  const all = JSON.parse(localStorage.getItem(SAVE_KEY)) || {};
+
+  if(!all[name]) return;
+
+  jobs.length = 0;
+  jobs.push(...all[name]);
+
+  render();
+
+}
+
+function getSaveList(){
+
+  const all = JSON.parse(localStorage.getItem(SAVE_KEY)) || {};
+
+  return Object.keys(all);
+
+}
+
+document.getElementById("saveBtn").addEventListener("click", () => {
+
+  const name = document.getElementById("saveName").value
+    || new Date().toISOString().slice(0,10);
+
+  saveJobs(name);
+  refreshSaveList();
+
+});
+
+document.getElementById("loadBtn").addEventListener("click", () => {
+
+  const name = document.getElementById("loadSelect").value;
+
+  loadJobs(name);
+
+});
+
+function refreshSaveList(){
+
+  const select = document.getElementById("loadSelect");
+
+  const list = getSaveList();
+
+  select.innerHTML = "";
+
+  list.forEach(name => {
+
+    const option = document.createElement("option");
+    option.value = name;
+    option.textContent = name;
+
+    select.appendChild(option);
+
+  });
+
+}
+
+refreshSaveList();
+
+function deleteSave(name){
+
+  const all =
+    JSON.parse(localStorage.getItem(SAVE_KEY)) || {};
+
+  if(!all[name]) return;
+
+  delete all[name];
+
+  localStorage.setItem(SAVE_KEY, JSON.stringify(all));
+
+  refreshSaveList();
+}
+
+document.getElementById("deleteSaveBtn")
+.addEventListener("click", () => {
+
+  const select =
+    document.getElementById("loadSelect");
+
+  const name = select.value;
+
+  if(!name) return;
+
+  if(!confirm(`${name} を削除しますか？`)) return;
+
+  deleteSave(name);
+});
+
+function refreshSaveList(){
+
+  const select =
+    document.getElementById("loadSelect");
+
+  const all =
+    JSON.parse(localStorage.getItem(SAVE_KEY)) || {};
+
+  const list = Object.keys(all);
+
+  select.innerHTML = "";
+
+  list.forEach(name => {
+
+    const option = document.createElement("option");
+    option.value = name;
+    option.textContent = name;
+
+    select.appendChild(option);
+
+  });
+
+  if(list.length === 0){
+    const option = document.createElement("option");
+    option.textContent = "保存なし";
+    select.appendChild(option);
+  }
+}
