@@ -1,12 +1,12 @@
 :root{
 
-  --bg:#ffffff;
-  --panel:#f2f2f2;
+  --bg:#f4f5f7;       /* メイン背景 薄グレー */
+  --panel:#ffffff;    /* サイドバー＆カード白 */
+  --line:#d9d9d9;     /* 細フチ */
+  --text:#222222;
 
   --mint:#60dabf;
   --magenta:#ff4fa3;
-
-  --text:#222222;
 
 }
 
@@ -15,21 +15,13 @@
 }
 
 body{
-
   margin:0;
-
   background:var(--bg);
-
   color:var(--text);
-
   font-family:sans-serif;
-
-  border-top:
-  50px solid 	#404048;
-
-  box-shadow:
-  0 2px 12px rgba(0,0,0,0.05);
+  border-top:50px solid #404048;
 }
+
 .app{
 
   display:grid;
@@ -46,11 +38,9 @@ body{
 /* サイドバー */
 
 .sidebar{
-
-  background:var(--panel);
-
-  padding:36px;
-
+  background:#ffffff;
+  padding:30px;
+  border-right:1px solid var(--line);
 }
 
 .job-form{
@@ -64,23 +54,25 @@ body{
 }
 
 input,
-select,
-button{
-
-  padding:18px;
-
-  border:none;
-
-  border-radius:18px;
-
-  background:white;
-
+select{
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#fff;
+  outline:none;
+  transition:0.2s;
 }
 
+input:focus,
+select:focus{
+  border-color: var(--mint);
+  box-shadow:0 0 0 2px rgba(96,218,191,0.2);
+}
 button{
-
+  padding:14px;
+  border:none;
+  border-radius:10px;
   cursor:pointer;
-
 }
 
 
@@ -127,7 +119,7 @@ button{
 
   border-radius:12px;
 
-  background:white;
+  background:rgb(255, 255, 255);
 
   font-weight:600;
 
@@ -143,9 +135,9 @@ button{
 
   background:#ff69b4;
 
-  color:white;
+  color:rgb(255, 255, 255);
 
-  transform:translateY(-1px);
+  transform:translateY(-1px); 
 
   box-shadow:
     0 4px 10px rgba(0,0,0,0.08);
@@ -185,9 +177,8 @@ button{
 /* メイン */
 
 .dashboard{
-
   padding:40px;
-
+  background:var(--bg);
 }
 
 
@@ -289,17 +280,11 @@ button{
 /* 統計 */
 
 .stats{
-
   display:flex;
-
-  gap:20px;
-
-  margin-bottom:20px;
-
-  font-size:15px;
-
+  gap:16px;
+  font-size:14px;
   font-weight:600;
-
+  color:#555;
 }
 
 
@@ -308,20 +293,25 @@ button{
 
 .job-card{
 
-  position: relative;
+  position:relative;
 
-  background:var(--panel);
+  background:#ffffff;
+  border-radius:14px;
 
-  border-radius:16px;
+  padding:12px 14px;
+  margin-bottom:10px;
 
-  padding:6px 10px;
+  border:1px solid var(--line);
 
-  margin-bottom:6px;
+  line-height:1.8;
 
-  border-left:4px solid;
+  box-shadow:0 2px 6px rgba(0,0,0,0.04);
+}
 
-  line-height:1.5;
-
+.job-card:hover{
+  transform:translateY(-1px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.06);
+  transition:0.15s;
 }
 
 .job-card:active{
