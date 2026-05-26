@@ -38,14 +38,12 @@ const jobs = [];
 /* 自動カラー */
 
 const palette = [
-
-  "#63c7ad", // mint
-  "#d96b98", // magenta
-  "#6eaecf", // sky
-  "#d4b357", // yellow
-  "#8e7cc3", // purple
-  "#d07a86"  // pink
-
+  "#4ade80",
+  "#f472b6",
+  "#60a5fa",
+  "#fbbf24",
+  "#a78bfa",
+  "#fb7185"
 ];
 
 
