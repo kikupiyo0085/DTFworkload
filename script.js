@@ -498,7 +498,10 @@ function render(){
 
   </div>
 
-  <button class="delete-btn">
+  <button
+  class="delete-btn"
+  onclick="deleteJob('${job.id}')"
+>
   ×
 </button>
 
@@ -534,7 +537,10 @@ function render(){
 
   </div>
 
-  <button class="delete-btn">
+  <button
+  class="delete-btn"
+  onclick="deleteJob('${job.id}')"
+>
   ×
 </button>
 
@@ -624,6 +630,21 @@ function render(){
     : "残業なし";
 
   
+}
+
+function deleteJob(id){
+
+  const index =
+    jobs.findIndex(job => job.id === id);
+
+  if(index !== -1){
+
+    jobs.splice(index,1);
+
+    render();
+
+  }
+
 }
 
 new Sortable(jobList, {
