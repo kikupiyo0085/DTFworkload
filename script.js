@@ -784,3 +784,91 @@ function refreshSaveList(){
     select.appendChild(option);
   }
 }
+
+document
+.getElementById("importTextBtn")
+.addEventListener("click", importText);
+
+function importText(){
+
+  const text =
+    document
+    .getElementById("bulkInput")
+    .value;
+
+  const lines =
+    text.trim().split("\n");
+
+  lines.forEach(line => {
+
+    const cols =
+      line.split("\t");
+
+    const company =
+      cols[0]?.trim();
+
+    const name =
+      cols[1]?.trim();
+
+    const count =
+      Number(cols[2]);
+
+    const prints =
+      cols[3]
+      ?.split(",")
+      .map(v => v.trim());
+
+    if(
+      !company ||
+      !name ||
+      !count ||
+      !prints?.length
+    ){
+      return;
+    }
+
+    jobs.push({
+
+      id: crypto.randomUUID(),
+
+      type:"job",
+
+      company,
+
+      companyColor:
+        companyColors[company]
+        || "#999",
+
+      name,
+
+      count,
+
+      prints,
+
+      color:getRandomColor()
+
+    });
+
+  });
+
+  render();
+
+}
+
+const sidebar =
+  document.querySelector(".sidebar");
+
+const toggle =
+  document.getElementById("sidebarToggle");
+
+toggle.addEventListener("click", ()=>{
+
+  sidebar.classList.toggle("collapsed");
+
+  toggle.textContent =
+
+    sidebar.classList.contains("collapsed")
+    ? "▲ 入力エリア"
+    : "▼ 入力エリア";
+
+});
