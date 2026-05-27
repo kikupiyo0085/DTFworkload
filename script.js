@@ -861,14 +861,34 @@ const sidebar =
 const toggle =
   document.getElementById("sidebarToggle");
 
+let isCollapsed = false;
+
 toggle.addEventListener("click", ()=>{
 
-  sidebar.classList.toggle("collapsed");
+  /* スマホだけ */
 
-  toggle.textContent =
+  if(window.innerWidth > 768){
+    return;
+  }
 
-    sidebar.classList.contains("collapsed")
-    ? "▲ 入力エリア"
-    : "▼ 入力エリア";
+  isCollapsed = !isCollapsed;
+
+  if(isCollapsed){
+
+    sidebar.classList.add("collapsed");
+
+    toggle.textContent =
+      "▲ 入力エリア";
+
+  }
+
+  else{
+
+    sidebar.classList.remove("collapsed");
+
+    toggle.textContent =
+      "▼ 入力エリア";
+
+  }
 
 });
