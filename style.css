@@ -24,8 +24,8 @@ body{
 
 .app{
   display:grid;
-  grid-template-columns:320px 1fr;
-  height:100vh;
+  grid-template-columns:400px 1fr;
+  min-height:100vh;
 }
 
 
@@ -34,8 +34,14 @@ body{
 
 .sidebar{
   background:#ffffff;
-  padding:30px;
+  padding:30px 50px 20px;
   border-right:1px solid var(--line);
+  overflow-x:hidden;
+}
+
+.sidebar h1{
+  margin-top:0;
+  margin-bottom:16px;
 }
 
 .sidebar-toggle{
@@ -50,7 +56,7 @@ body{
 
   flex-direction:column;
 
-  gap:20px;
+  gap:10px;
 
 }
 
@@ -69,11 +75,29 @@ select:focus{
   border-color: var(--mint);
   box-shadow:0 0 0 2px rgba(96,218,191,0.2);
 }
+
 button{
-  padding:14px;
+   padding:8px 10px;
   border:none;
   border-radius:10px;
   cursor:pointer;
+  width:auto;
+}
+
+.job-form button,
+#saveBtn,
+.bulk-import button{
+  width:100%;
+}
+
+#addJob,
+#addSetup,
+#addTrouble,n{
+
+  width:100%;
+  gap:10px;
+  
+
 }
 
 
@@ -85,6 +109,8 @@ button{
   display:flex;
 
   gap:10px;
+  
+  background:rgb(255, 255, 255);
 
 }
 
@@ -114,7 +140,7 @@ button{
 
   justify-content:center;
 
-  min-width:52px;
+  min-width:67px;
 
   padding:10px 14px;
 
@@ -122,7 +148,9 @@ button{
 
   background:rgb(255, 255, 255);
 
-  font-weight:600;
+  border:1px solid #e5e5e5e5;
+
+  font-weight:700;
 
   cursor:pointer;
 
@@ -140,11 +168,62 @@ button{
 
   transform:translateY(-1px); 
 
-  box-shadow:
-    0 4px 10px rgba(0,0,0,0.08);
 
 }
 
+.custom-settings{
+
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+
+  padding:14px;
+
+  border:1px solid #e5e5e5;
+  border-radius:14px;
+
+  background:#fafafa;
+
+  
+
+}
+
+.custom-title{
+
+  font-size:14px;
+  font-weight:700;
+  color:#333;
+
+}
+
+.custom-subtitle{
+
+  font-size:12px;
+  color:#777;
+  line-height:1.5;
+
+}
+
+.custom-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:10px;
+
+  width:100%;
+
+}
+
+.custom-grid input{
+
+  width:100%;
+  min-width:0;
+  box-sizing:border-box;
+
+}
 
 
 /* ボタン */
@@ -297,12 +376,14 @@ button{
 
 .job-card{
   position:relative;
+
   background:#fff;
-  border-radius:14px;
 
-  padding:16px 25px;
+  border-radius:12px;
 
-  margin-bottom:14px;
+  padding:10px 14px 10px 50px;
+
+  margin-bottom:8px;
 
   border-left:3px solid #ccc;
 }
@@ -320,10 +401,15 @@ button{
 }
 
 .job-title{
-  position: relative;
-  display: inline-block;
-  padding-bottom: 6px;
-  color: inherit;
+  position:relative;
+
+  display:inline-block;
+
+  margin:0 0 4px;
+
+  padding-bottom:4px;
+
+  font-size:15px;
 }
 
 .job-title::after{
@@ -340,7 +426,7 @@ button{
 
   margin:2px 0;
 
-  font-size:12px;
+  font-size:14px;
 
 
 }
@@ -349,9 +435,9 @@ button{
 
   display:flex;
 
-  gap:8px;
+  gap:5px;
 
-  margin-top:4px;
+  margin-top:3px;
 
   font-size:12px;
 
@@ -409,22 +495,18 @@ button{
 
   position:absolute;
 
-  top:3px;
-
   left:10px;
+  top:50%;
 
-  font-size:18px;
+  transform:translateY(-50%);
+
+  font-size:20px;
 
   color:#999;
 
   cursor:grab;
 
-  z-index:2;
-
   user-select:none;
-
-  pointer-events: auto;
-
 }
 
 .drag-handle:active{
@@ -439,12 +521,15 @@ button{
 
 .save-area{
 
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+
   margin-top:24px;
 
   padding-top:20px;
 
-  border-top:
-    1px solid #e5e5e5;
+  border-top:1px solid #e5e5e5;
 
 }
 
@@ -502,6 +587,8 @@ button{
 
   gap:10px;
 
+  
+
 }
 
 /* 呼び出し */
@@ -511,31 +598,34 @@ button{
 ========================= */
 
 .save-row{
-
   display:flex;
-
   gap:10px;
-
   align-items:center;
-
   margin-top:12px;
-
-
+  width:100%;
 }
 
 .save-row > *{
 
+  flex:1;
   min-width:0;
 
 }
 
-.save-row select,
-.save-row button{
+#deleteSaveBtn{
 
-  width:auto;
+  flex:0.7;
 
 }
 
+.save-row button,
+.save-row select{
+
+  width:auto;
+
+  
+
+}
 /* 4 */
 
 #loadSelect{
@@ -616,7 +706,7 @@ button{
   display:flex;
   flex-direction:column;
   gap:12px;
-  margin-top:30px;
+  margin-top:15px;
 
 }
 
@@ -629,10 +719,10 @@ button{
 @media (max-width:768px){
 
   .app{
-    display:flex;
-    flex-direction:column;
-    height:100vh;
-  }
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
 
   .sidebar-toggle{
 
@@ -662,15 +752,16 @@ button{
   }
 
   .sidebar{
+  width:100%;
 
-    width:100%;
+  max-height:50vh;
 
-    max-height:60vh;
+  overflow-y:auto;
 
-    overflow-y:auto;
+  padding:16px;
 
-    transition:0.25s ease;
-  }
+  transition:0.25s ease;
+}
 
   .sidebar.collapsed{
 
@@ -678,6 +769,12 @@ button{
 
     overflow:hidden;
   }
+
+  .size-buttons{
+
+  flex-wrap:wrap;
+
+}
 
   .dashboard{
 
@@ -690,5 +787,50 @@ button{
     padding:16px;
   }
 
+  .custom-grid{
+
+  grid-template-columns:1fr;
+
 }
 
+}
+
+@media print{
+
+  .body{
+    border-top:none;
+    background:white;
+  }
+
+  .sidebar{
+    display:none;
+  }
+
+  .app{
+    display:block;
+  }
+
+  .dashboard{
+    width:100%;
+    padding:0;
+    background:white;
+  }
+
+  .job-card{
+    break-inside:avoid;
+    box-shadow:none;
+  }
+
+  .delete-btn,
+  .drag-handle,
+  .sidebar-toggle{
+    display:none;
+  }
+
+
+}
+
+@page{
+  size:A4 portrait;
+  margin:10mm;
+}
