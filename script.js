@@ -32,7 +32,7 @@ const WORK_LIMIT = 480;
 
 const SAVE_KEY = "dtf_saves";
 
-const jobs = [];
+let jobs = [];
 
 
 
@@ -160,15 +160,32 @@ function getRandomColor(){
 
 /* 計算 */
 
-function calcPrintMeters(size,count){
+function calcPrintMeters(
+
+  size,
+  count,
+  customColumns,
+  customHeight
+
+){
 
   const data = sizes[size];
 
+  const columns =
+    customColumns > 0
+      ? customColumns
+      : data.columns;
+
+  const height =
+    customHeight > 0
+      ? customHeight
+      : data.height;
+
   const rows =
-    Math.ceil(count / data.columns);
+    Math.ceil(count / columns);
 
   const usedMm =
-    rows * (data.height + 8);
+    rows * (height + 8);
 
   return usedMm / 1000;
 
@@ -181,9 +198,14 @@ function calcJobMeters(job){
   return job.prints.reduce((sum,size)=>{
 
     return sum +
+
       calcPrintMeters(
+
         size,
-        job.count
+        job.count,
+        job.customColumns,
+        job.customHeight
+
       );
 
   },0);
@@ -248,17 +270,27 @@ function addJob(){
       document.getElementById("jobCount").value
     );
 
+  const customColumns =
+    Number(
+      document.getElementById("customColumns").value
+    );
+
+  const customHeight =
+    Number(
+      document.getElementById("customHeight").value
+    );
+
   const prints = [];
 
   document
-.querySelectorAll(
-  ".size-buttons input:checked"
-)
-  .forEach(input=>{
+    .querySelectorAll(
+      ".size-buttons input:checked"
+    )
+    .forEach(input=>{
 
-    prints.push(input.value);
+      prints.push(input.value);
 
-  });
+    });
 
   if(
     !name ||
@@ -268,27 +300,30 @@ function addJob(){
     return;
   }
 
-  const job = {
+  jobs.push({
 
-  id: crypto.randomUUID(),
+    id: crypto.randomUUID(),
 
-  type: "job",
+    type:"job",
 
-  company,
+    company,
 
-  companyColor: companyColors[company], // ←ここ修正
+    companyColor:
+      companyColors[company],
 
-  name,
+    name,
 
-  count,
+    count,
 
-  prints,
+    prints,
 
-  color: getRandomColor()
+    customColumns,
 
-};
+    customHeight,
 
-  jobs.push(job);
+    color:getRandomColor()
+
+  });
 
   render();
 
@@ -298,11 +333,14 @@ function addJob(){
 
 
 
+
 /* 立ち上げ */
 
 function addSetup(){
 
   jobs.push({
+
+    id: crypto.randomUUID(),
 
     type:"setup",
 
@@ -348,15 +386,17 @@ function addTrouble(){
 
   jobs.push({
 
-    type:"trouble",
+  id: crypto.randomUUID(),
 
-    name:title,
+  type:"trouble",
 
-    time:minutes,
+  name:title,
 
-    color:"#8f8f8f"
+  time:minutes,
 
-  });
+  color:"#8f8f8f"
+
+});
 
   render();
 
@@ -376,6 +416,9 @@ function resetForm(){
   .getElementById("jobCount")
   .value = "";
 
+  document.getElementById("customColumns").value = "";
+
+document.getElementById("customHeight").value = "";
 
 
   document
@@ -558,14 +601,26 @@ function render(){
   </h3>
 
   <p>
-    面:
-    ${job.prints.join(" / ")}
-  </p>
+  サイズ:
+  ${job.prints.join(" / ")}
+</p>
 
+<p>
+  枚数:
+  ${job.count}
+</p>
+
+${
+(job.customColumns || job.customHeight)
+? `
   <p>
-    枚数:
-    ${job.count}
+    一列あたり:
+    ${job.customColumns || "-"}枚 /
+    ${job.customHeight || "-"}mm
   </p>
+`
+: ""
+}
 
   <div class="job-meta">
 
