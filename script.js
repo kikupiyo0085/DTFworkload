@@ -2,22 +2,22 @@ const sizes = {
 
   S:{
     height:100,
-    columns:3
+    columns:5
   },
 
   M:{
     height:200,
-    columns:1
+    columns:2
   },
 
   L:{
-    height:280,
-    columns:1
+    height:300,
+    columns:2
   },
 
   LL:{
     height:400,
-    columns:1
+    columns:2
   }
 
 };
